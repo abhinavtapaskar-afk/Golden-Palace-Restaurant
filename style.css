@@ -1,37 +1,38 @@
+/* --- Royal Heritage Palette --- */
 :root {
-    --royal-maroon: #4a0404;   /* Deep Palace Red */
-    --gold: #cba258;           /* Elegant Gold */
-    --gold-bright: #ffd700;    /* Highlight Gold */
-    --bg-dark: #1a1a1a;        /* Charcoal Black */
-    --bg-light: #fdfaf5;       /* Cream/Parchment White */
+    --primary: #004d40;       /* Deep Emerald Green */
+    --accent: #d4af37;        /* Champagne Gold */
+    --accent-light: #f4e4bc;  /* Soft Gold Tint for badges */
+    --bg-light: #fffdf5;      /* Ivory White Background */
     --white: #ffffff;
-    --text-main: #333333;
-    --veg-green: #27ae60;
-    --nonveg-red: #c0392b;
+    --text-dark: #1a1a1a;
+    --gray: #666666;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
-body { background: var(--bg-light); color: var(--text-main); line-height: 1.6; }
+body { background: var(--bg-light); color: var(--text-dark); overflow-x: hidden; }
 
 h1, h2, .logo { font-family: 'Playfair Display', serif; }
 
-/* --- Royal Header & Hero --- */
+/* --- Header Section --- */
 .header { 
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/palace-bg.jpg');
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/hero-bg.jpg');
     background-size: cover;
     background-position: center;
-    color: var(--gold);
+    color: var(--accent);
     text-align: center;
     padding: 80px 20px;
-    border-bottom: 4px solid var(--gold);
+    border-bottom: 5px solid var(--accent);
 }
 
-.logo { font-size: 2.8rem; font-weight: 900; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+.logo { font-size: 2.8rem; font-weight: 900; letter-spacing: 2px; }
 
-.tagline { color: var(--white); font-size: 1.1rem; margin-top: 10px; letter-spacing: 3px; text-transform: uppercase; }
+.tagline { color: var(--white); font-size: 1rem; margin-top: 10px; letter-spacing: 3px; text-transform: uppercase; }
 
-.header-features { margin-top: 20px; display: flex; justify-content: center; gap: 15px; font-size: 0.85rem; color: var(--gold-bright); font-weight: 600; }
+.royal-tag { color: var(--accent); font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; }
+
+.header-features { margin-top: 20px; display: flex; justify-content: center; gap: 15px; font-size: 0.85rem; color: var(--accent); }
 
 /* --- Sticky Action Bar --- */
 .action-bar {
@@ -39,236 +40,166 @@ h1, h2, .logo { font-family: 'Playfair Display', serif; }
     top: 0;
     z-index: 1001;
     display: flex;
-    background: var(--royal-maroon);
-    border-bottom: 2px solid var(--gold);
+    background: var(--primary);
+    border-bottom: 2px solid var(--accent);
 }
 
 .action-btn {
     flex: 1;
-    padding: 15px;
+    padding: 18px;
     border: none;
     background: transparent;
-    color: var(--gold);
+    color: var(--accent);
     font-weight: 700;
     cursor: pointer;
-    font-size: 0.9rem;
     text-transform: uppercase;
-}
-
-.action-btn.book { background: var(--gold); color: var(--royal-maroon); }
-
-/* --- Menu Filters & Search --- */
-.menu-nav { background: var(--white); padding: 20px 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-
-.search-bar input {
-    width: 100%;
-    padding: 12px 20px;
-    border: 1px solid #ddd;
-    border-radius: 30px;
-    margin-bottom: 15px;
-    outline: none;
-}
-
-.filter-controls { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; }
-
-.filter-btn {
-    padding: 8px 18px;
-    border-radius: 20px;
-    border: 1px solid #ddd;
-    background: #fff;
     font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
 }
 
-.filter-btn.active { background: var(--royal-maroon); color: var(--gold); border-color: var(--royal-maroon); }
+.action-btn.book { background: var(--accent); color: var(--primary); }
+
+/* --- Category Navigation --- */
+.menu-nav { background: var(--white); padding: 15px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
 .category-scroll {
     display: flex;
     overflow-x: auto;
-    gap: 10px;
-    padding-bottom: 5px;
+    padding: 0 15px;
+    gap: 12px;
     scrollbar-width: none;
 }
 .category-scroll::-webkit-scrollbar { display: none; }
 
+.filter-btn {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 8px 22px;
+    border-radius: 25px;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-btn.active { background: var(--primary); color: var(--accent); }
+
 /* --- Menu Grid --- */
-.menu { padding: 20px; max-width: 1200px; margin: 0 auto; }
+.menu { padding: 30px 15px; max-width: 1200px; margin: 0 auto; }
 
 #menuContainer { 
     display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-    gap: 20px; 
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
+    gap: 15px; 
 }
 
 .menu-item { 
     background: var(--white); 
-    border-radius: 15px; 
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    border: 1px solid #f0f0f0;
-    position: relative;
+    border-radius: 20px; 
+    padding: 12px; 
+    text-align: center; 
+    border: 1px solid #eee; 
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
 }
 
-.item-img { width: 100%; height: 180px; object-fit: cover; }
+.item-img { width: 100%; height: 130px; object-fit: cover; border-radius: 15px; margin-bottom: 10px; background: #f0f0f0; }
 
-.item-info { padding: 15px; }
+.item-info h3 { font-size: 0.95rem; color: var(--primary); margin-bottom: 5px; font-weight: 700; }
 
-.item-info h3 { font-size: 1.1rem; color: var(--royal-maroon); margin-bottom: 5px; }
+.price { color: var(--primary); font-weight: 800; font-size: 1.1rem; margin-bottom: 10px; }
 
-/* Veg/Non-Veg Indicators */
-.type-indicator {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 18px;
-    height: 18px;
-    border: 2px solid;
-    padding: 2px;
-    background: white;
+.qty-controls { display: flex; justify-content: center; align-items: center; gap: 12px; }
+
+.qty-controls button { 
+    background: var(--primary); 
+    color: var(--accent); 
+    border: none; 
+    width: 32px; 
+    height: 32px; 
+    border-radius: 50%; 
+    font-weight: 800; 
+    cursor: pointer; 
 }
-.type-indicator::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-}
-.type-indicator.veg { border-color: var(--veg-green); }
-.type-indicator.veg::after { background: var(--veg-green); }
-.type-indicator.non-veg { border-color: var(--nonveg-red); }
-.type-indicator.non-veg::after { background: var(--nonveg-red); }
+
+/* --- Cart Section --- */
+.cart { background: var(--primary); color: var(--white); padding: 30px; margin: 30px 15px; border-radius: 25px; border: 2px solid var(--accent); }
+
+.cart h2 { color: var(--accent); margin-bottom: 15px; font-family: 'Playfair Display', serif; }
+
+.cart-footer { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 20px; }
+
+.total-row { display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: 700; color: var(--accent); }
+
+.order-btn { background: var(--accent); color: var(--primary); width: 100%; padding: 18px; border: none; border-radius: 12px; font-weight: 800; font-size: 1rem; margin-top: 20px; cursor: pointer; text-transform: uppercase; }
+
+.cart-note { text-align: center; font-size: 0.75rem; margin-top: 12px; opacity: 0.7; }
 
 /* --- Reservation Section --- */
-.reservations { background: var(--royal-maroon); color: var(--white); padding: 60px 20px; text-align: center; }
+.reservations { background: var(--primary); color: var(--white); padding: 60px 20px; text-align: center; }
 
-.reservation-box {
-    max-width: 500px;
-    margin: 20px auto;
-    background: rgba(255,255,255,0.1);
-    padding: 30px;
-    border-radius: 20px;
-    border: 1px solid var(--gold);
-}
+.reservation-box { max-width: 500px; margin: 25px auto; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px; border: 1px solid var(--accent); }
 
-.booking-btn {
-    background: var(--gold);
-    color: var(--royal-maroon);
-    width: 100%;
-    padding: 18px;
-    border: none;
-    border-radius: 10px;
-    font-weight: 800;
-    font-size: 1rem;
-    margin-top: 20px;
-    cursor: pointer;
-    text-transform: uppercase;
-}
+.booking-btn { background: var(--accent); color: var(--primary); width: 100%; padding: 18px; border: none; border-radius: 12px; font-weight: 800; margin-top: 20px; cursor: pointer; }
 
-/* --- About & Quote --- */
-.about-section { padding: 60px 20px; text-align: center; background: var(--bg-light); }
-
-.about-title { font-size: 2.2rem; color: var(--royal-maroon); margin-bottom: 20px; }
-
-.highlight-quote {
-    margin-top: 40px;
-    padding: 30px;
-    background: var(--white);
-    border-top: 3px solid var(--gold);
-    border-bottom: 3px solid var(--gold);
-    font-style: italic;
-}
-
-/* --- Cart & Footer --- */
-.cart { 
-    background: var(--white); 
-    padding: 20px; 
-    margin: 20px; 
-    border-radius: 15px; 
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
-    border-top: 4px solid var(--gold);
-}
-
-.order-btn {
-    background: var(--royal-maroon);
-    color: var(--gold);
-    width: 100%;
-    padding: 18px;
-    border: none;
-    border-radius: 10px;
-    font-weight: 700;
-    margin-top: 15px;
-}
-
-.footer { background: var(--bg-dark); color: var(--gold); padding: 40px 20px; text-align: center; }
-
-@media (max-width: 600px) {
-    .logo { font-size: 2.2rem; }
-    #menuContainer { grid-template-columns: 1fr 1fr; gap: 10px; } /* 2 items per row on mobile */
-    .item-img { height: 140px; }
-}
-/* --- Centered Visit Section --- */
+/* --- FULLY CENTERED VISIT SECTION --- */
 .visit {
-    padding: 80px 20px;
+    padding: 100px 20px;
     background: var(--bg-light);
     display: flex;
-    justify-content: center;
-    text-align: center;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    text-align: center;    /* Center text */
 }
 
-.visit-card {
-    max-width: 600px;
-    width: 100%;
-    padding: 40px;
-    background: var(--white);
-    border-radius: 30px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08); /* Soft Shadow */
-    border: 1px solid rgba(203, 162, 88, 0.2); /* Light Gold Border */
+.visit h2 { 
+    color: var(--primary); 
+    font-size: 2.5rem; 
+    margin-bottom: 15px; 
 }
 
-.icon-circle {
-    font-size: 2rem;
-    margin-bottom: 15px;
+.visit p { 
+    font-size: 1.2rem; 
+    color: var(--gray); 
+    margin-bottom: 10px; 
 }
 
-.visit-card h2 {
-    color: var(--royal-maroon); /* Change this to Black/Navy based on your choice */
-    font-size: 2.2rem;
-    margin-bottom: 10px;
-}
-
-.address {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.timing-badge {
+.status-text { 
     display: inline-block;
-    background: #f8f1e5; /* Soft Gold Tint */
-    color: var(--royal-maroon);
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    margin-bottom: 30px;
+    background: var(--accent-light); 
+    color: var(--primary); 
+    padding: 8px 20px; 
+    border-radius: 50px; 
+    font-weight: 700; 
+    margin-bottom: 35px; 
 }
 
-/* The New Map Button */
 .map-btn-large {
-    display: block;
-    background: var(--royal-maroon); /* Gold/Black based on your choice */
-    color: var(--gold);
+    display: inline-block;
+    background: var(--primary);
+    color: var(--accent);
     text-decoration: none;
-    padding: 18px 30px;
+    padding: 20px 50px;
     border-radius: 15px;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: 0.3s transform ease;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    box-shadow: 0 10px 20px rgba(0,77,64,0.2);
 }
 
 .map-btn-large:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
+}
+
+/* --- Footer --- */
+.footer { padding: 50px 20px; background: #111; text-align: center; color: var(--accent); }
+
+.footer-sub { font-size: 0.75rem; color: #666; margin-top: 10px; }
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .logo { font-size: 2.2rem; }
+    #menuContainer { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .visit h2 { font-size: 2rem; }
 }
