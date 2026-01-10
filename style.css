@@ -207,3 +207,68 @@ h1, h2, .logo { font-family: 'Playfair Display', serif; }
     #menuContainer { grid-template-columns: 1fr 1fr; gap: 10px; } /* 2 items per row on mobile */
     .item-img { height: 140px; }
 }
+/* --- Centered Visit Section --- */
+.visit {
+    padding: 80px 20px;
+    background: var(--bg-light);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.visit-card {
+    max-width: 600px;
+    width: 100%;
+    padding: 40px;
+    background: var(--white);
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08); /* Soft Shadow */
+    border: 1px solid rgba(203, 162, 88, 0.2); /* Light Gold Border */
+}
+
+.icon-circle {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.visit-card h2 {
+    color: var(--royal-maroon); /* Change this to Black/Navy based on your choice */
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.address {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.timing-badge {
+    display: inline-block;
+    background: #f8f1e5; /* Soft Gold Tint */
+    color: var(--royal-maroon);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+/* The New Map Button */
+.map-btn-large {
+    display: block;
+    background: var(--royal-maroon); /* Gold/Black based on your choice */
+    color: var(--gold);
+    text-decoration: none;
+    padding: 18px 30px;
+    border-radius: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s transform ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.map-btn-large:hover {
+    transform: translateY(-3px);
+}
