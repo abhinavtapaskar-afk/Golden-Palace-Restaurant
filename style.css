@@ -1,0 +1,209 @@
+:root {
+    --royal-maroon: #4a0404;   /* Deep Palace Red */
+    --gold: #cba258;           /* Elegant Gold */
+    --gold-bright: #ffd700;    /* Highlight Gold */
+    --bg-dark: #1a1a1a;        /* Charcoal Black */
+    --bg-light: #fdfaf5;       /* Cream/Parchment White */
+    --white: #ffffff;
+    --text-main: #333333;
+    --veg-green: #27ae60;
+    --nonveg-red: #c0392b;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+body { background: var(--bg-light); color: var(--text-main); line-height: 1.6; }
+
+h1, h2, .logo { font-family: 'Playfair Display', serif; }
+
+/* --- Royal Header & Hero --- */
+.header { 
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/palace-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--gold);
+    text-align: center;
+    padding: 80px 20px;
+    border-bottom: 4px solid var(--gold);
+}
+
+.logo { font-size: 2.8rem; font-weight: 900; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+
+.tagline { color: var(--white); font-size: 1.1rem; margin-top: 10px; letter-spacing: 3px; text-transform: uppercase; }
+
+.header-features { margin-top: 20px; display: flex; justify-content: center; gap: 15px; font-size: 0.85rem; color: var(--gold-bright); font-weight: 600; }
+
+/* --- Sticky Action Bar --- */
+.action-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    display: flex;
+    background: var(--royal-maroon);
+    border-bottom: 2px solid var(--gold);
+}
+
+.action-btn {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    background: transparent;
+    color: var(--gold);
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.action-btn.book { background: var(--gold); color: var(--royal-maroon); }
+
+/* --- Menu Filters & Search --- */
+.menu-nav { background: var(--white); padding: 20px 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+
+.search-bar input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+.filter-controls { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; }
+
+.filter-btn {
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.filter-btn.active { background: var(--royal-maroon); color: var(--gold); border-color: var(--royal-maroon); }
+
+.category-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 5px;
+    scrollbar-width: none;
+}
+.category-scroll::-webkit-scrollbar { display: none; }
+
+/* --- Menu Grid --- */
+.menu { padding: 20px; max-width: 1200px; margin: 0 auto; }
+
+#menuContainer { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 20px; 
+}
+
+.menu-item { 
+    background: var(--white); 
+    border-radius: 15px; 
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+    position: relative;
+}
+
+.item-img { width: 100%; height: 180px; object-fit: cover; }
+
+.item-info { padding: 15px; }
+
+.item-info h3 { font-size: 1.1rem; color: var(--royal-maroon); margin-bottom: 5px; }
+
+/* Veg/Non-Veg Indicators */
+.type-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid;
+    padding: 2px;
+    background: white;
+}
+.type-indicator::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.type-indicator.veg { border-color: var(--veg-green); }
+.type-indicator.veg::after { background: var(--veg-green); }
+.type-indicator.non-veg { border-color: var(--nonveg-red); }
+.type-indicator.non-veg::after { background: var(--nonveg-red); }
+
+/* --- Reservation Section --- */
+.reservations { background: var(--royal-maroon); color: var(--white); padding: 60px 20px; text-align: center; }
+
+.reservation-box {
+    max-width: 500px;
+    margin: 20px auto;
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid var(--gold);
+}
+
+.booking-btn {
+    background: var(--gold);
+    color: var(--royal-maroon);
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 1rem;
+    margin-top: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+/* --- About & Quote --- */
+.about-section { padding: 60px 20px; text-align: center; background: var(--bg-light); }
+
+.about-title { font-size: 2.2rem; color: var(--royal-maroon); margin-bottom: 20px; }
+
+.highlight-quote {
+    margin-top: 40px;
+    padding: 30px;
+    background: var(--white);
+    border-top: 3px solid var(--gold);
+    border-bottom: 3px solid var(--gold);
+    font-style: italic;
+}
+
+/* --- Cart & Footer --- */
+.cart { 
+    background: var(--white); 
+    padding: 20px; 
+    margin: 20px; 
+    border-radius: 15px; 
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+    border-top: 4px solid var(--gold);
+}
+
+.order-btn {
+    background: var(--royal-maroon);
+    color: var(--gold);
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+.footer { background: var(--bg-dark); color: var(--gold); padding: 40px 20px; text-align: center; }
+
+@media (max-width: 600px) {
+    .logo { font-size: 2.2rem; }
+    #menuContainer { grid-template-columns: 1fr 1fr; gap: 10px; } /* 2 items per row on mobile */
+    .item-img { height: 140px; }
+}
