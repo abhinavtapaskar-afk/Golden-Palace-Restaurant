@@ -1,25 +1,27 @@
 :root {
-    --bg-deep: #ffffff;        /* Deeper Black for more "pop" */
-    --card-bg: #2b0a0a;        /* Dark Grey for defined areas */
-    --accent: #d4af37;         /* Metallic Gold */
-    --accent-hover: #b8962e;   /* Slightly darker gold for clicks */
-    --text-light: #f5f5f5;     /* Near White */
-    --text-muted: #888888;     /* Grey secondary text */
+    --bg-deep: #ffffff;        /* Pure White Background */
+    --card-bg: #f9f9f9;        /* Very Soft Grey for boxes */
+    --accent: #d4af37;         /* Real Gold */
+    --accent-dark: #b8962e;    /* Darker Gold for text on white */
+    --text-main: #1a1a1a;      /* Deep Black-Grey for text */
+    --text-muted: #666666;     /* Grey for secondary text */
+    --white: #ffffff;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Poppins', sans-serif; }
 
-body { background: var(--bg-deep); color: var(--text-light); line-height: 1.6; }
+body { background: var(--bg-deep); color: var(--text-main); line-height: 1.6; }
 
-h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
+h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--text-main); }
 
 /* --- Header --- */
 .header { 
     padding: 60px 20px;
     text-align: center;
-    background: linear-gradient(to bottom, #1a1a1a, var(--bg-deep));
+    background: var(--bg-deep);
+    border-bottom: 1px solid #eee;
 }
-.logo { font-size: 2.5rem; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; }
+.logo { font-size: 2.5rem; color: var(--accent-dark); letter-spacing: 3px; text-transform: uppercase; }
 .tagline { font-size: 0.8rem; color: var(--text-muted); letter-spacing: 4px; margin-top: 5px; text-transform: uppercase; }
 
 /* --- Cafe Bucks Style Action Bar --- */
@@ -27,32 +29,32 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
     display: flex;
     gap: 12px;
     padding: 12px;
-    background: rgba(18, 18, 18, 0.95);
+    background: rgba(255, 255, 255, 0.95);
     position: sticky;
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid #222;
+    border-bottom: 1px solid #eee;
 }
 
 .action-btn {
     flex: 1;
     padding: 14px;
-    border: none;
-    background: #222; /* Solid dark button */
-    color: var(--accent);
+    border: 1px solid #ddd;
+    background: var(--white);
+    color: var(--text-main);
     font-weight: 700;
     text-transform: uppercase;
     font-size: 0.75rem;
-    border-radius: 8px; /* Rounded corners like Cafe Bucks */
+    border-radius: 8px;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 .action-btn.book {
-    background: var(--accent); /* Solid Gold button */
-    color: #000;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    background: var(--accent); /* Solid Gold */
+    color: var(--white);
+    border: none;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 }
 
 /* --- Category Navigation --- */
@@ -65,20 +67,19 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
     scrollbar-width: none;
 }
 .filter-btn {
-    background: #1a1a1a;
-    border: 1px solid #333;
+    background: #f0f0f0;
+    border: none;
     color: var(--text-muted);
-    padding: 10px 20px;
-    border-radius: 50px; /* Capsule style */
+    padding: 10px 22px;
+    border-radius: 50px;
     white-space: nowrap;
     cursor: pointer;
     font-size: 0.8rem;
     font-weight: 600;
 }
 .filter-btn.active { 
-    background: var(--accent); 
-    color: #000; 
-    border-color: var(--accent); 
+    background: var(--text-main); 
+    color: var(--accent); 
 }
 
 /* --- Menu Grid --- */
@@ -89,45 +90,54 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
     gap: 15px; 
 }
 .menu-item { 
-    background: var(--card-bg); 
+    background: var(--white); 
     padding: 10px; 
     border-radius: 12px;
-    border: 1px solid #222;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
 }
 .item-img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; }
-.item-info h3 { font-size: 0.9rem; color: var(--accent); margin-bottom: 4px; }
-.price { color: var(--white); font-weight: 700; font-size: 1.1rem; margin-bottom: 12px; display: block; }
+.item-info h3 { font-size: 0.95rem; color: var(--text-main); margin-bottom: 4px; }
+.price { color: var(--accent-dark); font-weight: 800; font-size: 1.1rem; margin-bottom: 12px; display: block; }
 
-/* Cafe Bucks style Quantity Controls */
-.qty-controls { display: flex; justify-content: space-between; align-items: center; background: #222; border-radius: 8px; padding: 5px; }
+/* Cafe Bucks style Quantity Controls (Light Version) */
+.qty-controls { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    background: #f8f8f8; 
+    border-radius: 8px; 
+    padding: 5px; 
+    border: 1px solid #eee;
+}
 .qty-controls button { 
     background: var(--accent); 
     border: none; 
-    color: #000; 
-    width: 28px; 
-    height: 28px; 
+    color: var(--white); 
+    width: 30px; 
+    height: 30px; 
     border-radius: 6px; 
     cursor: pointer; 
     font-weight: bold;
     font-size: 1.2rem;
 }
-.qty-controls span { font-weight: 700; color: var(--accent); }
+.qty-controls span { font-weight: 700; color: var(--text-main); }
 
 /* --- Cart (Solid Design) --- */
 .cart { 
     margin: 40px 15px;
     padding: 25px;
-    background: #1a1a1a;
+    background: #fdfdfd;
     border-radius: 15px;
-    border-top: 4px solid var(--accent); /* Strong accent line */
+    border: 1px solid #eee;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
-.cart h2 { color: var(--accent); margin-bottom: 15px; font-size: 1.5rem; }
-#cartItems { border-bottom: 1px solid #333; padding-bottom: 15px; }
-.total-row { display: flex; justify-content: space-between; margin-top: 15px; font-size: 1.3rem; font-weight: 800; color: var(--white); }
+.cart h2 { color: var(--text-main); margin-bottom: 15px; border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; }
+.total-row { display: flex; justify-content: space-between; margin-top: 15px; font-size: 1.3rem; font-weight: 800; color: var(--text-main); }
 
 .order-btn { 
-    background: var(--accent); 
-    color: #000; 
+    background: var(--text-main); 
+    color: var(--accent); 
     width: 100%; 
     padding: 18px; 
     border: none; 
@@ -136,7 +146,6 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
     text-transform: uppercase; 
     margin-top: 20px; 
     cursor: pointer;
-    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
 }
 
 /* --- Reservation Section (Clean Box) --- */
@@ -147,13 +156,13 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
     padding: 30px 20px;
     background: var(--card-bg); 
     border-radius: 15px;
-    border: 1px solid #333;
+    border: 1px solid #eee;
     text-align: center;
 }
 .booking-btn { 
     background: var(--accent); 
     border: none; 
-    color: #000; 
+    color: var(--white); 
     padding: 15px 40px; 
     border-radius: 8px;
     margin-top: 20px; 
@@ -163,35 +172,32 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; }
 }
 
 /* --- Centered Sections --- */
-.about-section, .visit { text-align: center; padding: 60px 20px; }
-.about-container { max-width: 700px; margin: 0 auto; }
-.about-title { color: var(--accent); font-size: 2rem; margin-bottom: 15px; }
+.about-section, .visit { text-align: center; padding: 60px 20px; border-top: 1px solid #eee; }
+.about-title { color: var(--text-main); font-size: 2rem; margin-bottom: 15px; }
 .about-content p { color: var(--text-muted); margin-bottom: 10px; }
 
-.status-text { color: var(--accent); font-weight: 700; margin-bottom: 20px; display: block; }
+.status-text { color: var(--accent-dark); font-weight: 700; margin-bottom: 20px; display: block; }
 .map-btn-large { 
     display: inline-block; 
-    background: #222; 
+    background: var(--text-main); 
     color: var(--accent); 
     padding: 15px 40px; 
     border-radius: 8px;
     text-decoration: none; 
     font-weight: 800; 
-    text-transform: uppercase;
-    border: 1px solid var(--accent);
+    text-transform: uppercase; 
 }
 
 /* --- Footer --- */
 .footer { 
     padding: 40px 20px; 
     text-align: center; 
-    background: #050505; 
-    border-top: 1px solid #111;
+    background: #f5f5f5; 
+    border-top: 1px solid #eee;
 }
-.footer p { color: var(--accent); font-size: 0.8rem; font-weight: 600; }
-.footer-sub { color: #444 !important; margin-top: 5px; font-size: 0.7rem; }
+.footer p { color: var(--text-main); font-size: 0.8rem; font-weight: 600; }
+.footer-sub { color: #888 !important; margin-top: 5px; font-size: 0.7rem; }
 
 @media (max-width: 600px) {
     #menuContainer { grid-template-columns: 1fr 1fr; gap: 10px; }
-    .logo { font-size: 2rem; }
 }
