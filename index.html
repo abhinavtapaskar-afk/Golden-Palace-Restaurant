@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>The Golden Palace | Multi-Cuisine Restaurant Nanded</title>
+
+    <meta name="description" content="Experience royal dining at The Golden Palace, Pir Burhan, Nanded. Best Mughlai, Chinese, and Family Dining." />
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css" />
+
+    <script defer src="menuData.js"></script>
+    <script defer src="main.js"></script>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-overlay">
+        <span class="royal-tag">Est. 2024 • Pir Burhan, Nanded</span>
+        <h1 class="logo">THE GOLDEN PALACE</h1>
+        <p class="tagline">A Royal Multi-Cuisine Experience</p>
+        <div class="header-features">
+            <span>✨ AC Dining</span>
+            <span>✨ Family Section</span>
+            <span>✨ Party Hall</span>
+        </div>
+    </div>
+</header>
+
+<nav class="action-bar">
+    <button class="action-btn call" onclick="window.location.href='tel:+91XXXXXXXXXX'">
+        📞 Call Now
+    </button>
+    <button class="action-btn book" onclick="scrollToSection('reservations')">
+        📅 Table Booking
+    </button>
+</nav>
+
+<section class="menu-nav">
+    <div class="search-bar">
+        <input type="text" id="menuSearch" placeholder="Search for Biryani, Kebabs..." onkeyup="searchMenu()">
+    </div>
+    
+    <div class="filter-controls">
+        <button class="filter-btn active" onclick="filterType('all')">All</button>
+        <button class="filter-btn veg" onclick="filterType('veg')">🟢 Veg</button>
+        <button class="filter-btn non-veg" onclick="filterType('non-veg')">🔴 Non-Veg</button>
+    </div>
+
+    <div id="categoryContainer" class="category-scroll">
+        </div>
+</section>
+
+<section class="menu" id="menuListing">
+    <div id="menuContainer"></div>
+</section>
+
+<section class="cart" id="orderCart">
+    <div class="cart-header">
+        <h2>Your Selection</h2>
+        <span class="cart-count" id="cartCount">0 Items</span>
+    </div>
+    <div id="cartItems"></div>
+    <div class="cart-footer">
+        <div class="total-row">
+            <span>Subtotal:</span>
+            <strong id="totalPrice">₹0</strong>
+        </div>
+        <button class="order-btn" onclick="sendWhatsAppOrder()">
+            🚀 Confirm Order on WhatsApp
+        </button>
+        <p class="cart-note">Note: Home delivery available for Pir Burhan & surrounding areas.</p>
+    </div>
+</section>
+
+<section id="reservations" class="reservations">
+    <div class="section-head">
+        <span class="sub-title">Book a Table</span>
+        <h2>Reserve Your Palace Experience</h2>
+    </div>
+    
+    <div class="reservation-box">
+        <p>Planning a family dinner or a birthday celebration?</p>
+        <div class="res-features">
+            <span>✅ Private Family Cabin</span>
+            <span>✅ Special Occasion Decor</span>
+        </div>
+        <button class="booking-btn" onclick="sendTableBooking()">
+            Send Reservation Request
+        </button>
+    </div>
+</section>
+
+<section id="about" class="about-section">
+    <div class="about-container">
+        <span class="sub-title">Our Story</span>
+        <h2 class="about-title">Dining Like Royalty</h2>
+        <div class="about-content">
+            <p><strong>The Golden Palace</strong> is Pir Burhan’s premier destination for authentic Mughlai and Multi-cuisine flavors. We blend traditional Nanded hospitality with a luxurious ambiance.</p>
+            <p style="margin-top: 10px;">Our chefs use secret spice blends to create signature dishes, from our slow-cooked Dum Biryanis to our tandoori delicacies, ensuring every meal is a celebration.</p>
+            <p style="margin-top: 10px;">We take pride in our <strong>Separate Family Dining Section</strong>, providing a comfortable and private environment for you and your loved ones to enjoy.</p>
+        </div>
+        <p class="highlight-quote">
+            Premium Taste. Royal Ambiance. Local Heart. <br>
+            <span>Welcome to The Golden Palace.</span>
+        </p>
+    </div>
+</section>
+
+<section class="visit">
+    <h2>Find The Palace 📍</h2>
+    <p>Main Road, Pir Burhan Area, Nanded</p>
+    <p class="status-text">Open: 12:00 PM – 11:30 PM</p>
+    <div class="visit-buttons">
+        <a href="https://maps.google.com" target="_blank" class="map-btn">Get Directions</a>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© 2026 THE GOLDEN PALACE RESTAURANT</p>
+    <p class="footer-sub">PREMIUM DINING EXPERIENCE • PIR BURHAN, NANDED</p>
+</footer>
+
+</body>
+</html>
