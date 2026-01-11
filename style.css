@@ -1,9 +1,9 @@
 /* --- THE ROYAL PALETTE --- */
 :root {
     --gold: #C5A059;       /* Antique Mughlai Gold */
-    --dark: #2C2C2C;       /* Soft Charcoal for text */
-    --body-bg: #F7F3EB;    /* Marble Cream Background (Whole Website) */
-    --card-bg: #ffffff;    /* Pure White (Menu Cards) */
+    --dark: #2C2C2C;       /* Soft Charcoal */
+    --body-bg: #F7F3EB;    /* Marble Cream */
+    --card-bg: #ffffff;    /* Pure White */
     --border: #E8E2D6;     /* Subtle warm border */
 }
 
@@ -16,16 +16,17 @@
 }
 
 body { 
-    background: var(--body-bg); /* This controls the whole website color */
+    background: var(--body-bg);
     color: var(--dark); 
     line-height: 1.6; 
+    scroll-behavior: smooth;
 }
 
 /* 2. Centered Royal Header */
 .header { 
-    padding: 80px 20px; 
+    padding: 60px 20px; 
     text-align: center; 
-    background: var(--body-bg); /* Matches website background */
+    background: var(--body-bg); 
 }
 
 .logo { 
@@ -34,29 +35,21 @@ body {
     color: var(--dark); 
     letter-spacing: 2px;
     margin: 10px 0;
+    text-transform: uppercase;
 }
 
 .royal-tag { 
     color: var(--gold); 
     text-transform: uppercase; 
-    font-size: 0.8rem; 
+    font-size: 0.75rem; 
     letter-spacing: 3px; 
     font-weight: 700; 
 }
 
 .tagline { 
-    font-size: 1rem; 
+    font-size: 0.95rem; 
     color: #666; 
     font-style: italic; 
-}
-
-.header-features { 
-    display: flex; 
-    justify-content: center; 
-    gap: 15px; 
-    margin-top: 25px; 
-    font-size: 0.8rem; 
-    font-weight: 600;
 }
 
 /* 3. Sticky Action Bar */
@@ -64,11 +57,12 @@ body {
     display: flex; 
     gap: 10px; 
     padding: 12px;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98);
     position: sticky; 
     top: 0; 
     z-index: 1000;
     border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .action-btn {
@@ -76,9 +70,12 @@ body {
     padding: 14px; 
     border-radius: 8px; 
     font-weight: 700;
+    font-size: 0.85rem;
     cursor: pointer; 
     border: 1.5px solid var(--dark); 
     background: white;
+    text-transform: uppercase;
+    transition: 0.3s;
 }
 
 .action-btn.book { 
@@ -87,18 +84,44 @@ body {
     border: none; 
 }
 
-/* 4. Category Navigation */
+/* 4. Category & Type Filters */
 .menu-nav { 
-    padding: 20px 0; 
+    padding: 25px 0; 
+}
+
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.type-btn {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.type-btn.active {
+    background: var(--gold);
+    color: white;
 }
 
 .category-scroll { 
     display: flex; 
     overflow-x: auto; 
-    padding: 0 15px; 
-    gap: 10px; 
+    padding: 5px 15px; 
+    gap: 12px; 
     scrollbar-width: none; 
 }
+
+.category-scroll::-webkit-scrollbar { display: none; }
 
 .filter-btn { 
     background: white; 
@@ -108,8 +131,10 @@ body {
     border-radius: 4px; 
     font-weight: 700;
     text-transform: uppercase;
+    font-size: 0.75rem;
     box-shadow: 3px 3px 0px var(--gold);
     white-space: nowrap;
+    cursor: pointer;
 }
 
 .filter-btn.active { 
@@ -121,94 +146,117 @@ body {
 
 /* 5. Menu Grid & THE ROYAL CARD */
 .menu { 
-    padding: 20px; 
+    padding: 15px; 
     max-width: 1100px; 
     margin: 0 auto; 
 }
 
 #menuContainer { 
     display: grid; 
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); 
     gap: 15px; 
 }
 
 .menu-item { 
-    background: var(--card-bg); /* Controlled by the variable at the top */
+    background: var(--card-bg); 
     border: 1px solid var(--border); 
     border-radius: 12px; 
     padding: 15px; 
     text-align: center;
     position: relative;
-    
-    /* MUGHLAI VIBE: The inner gold frame */
-    outline: 1px solid var(--gold);
-    outline-offset: -10px; 
+    transition: transform 0.2s;
+}
+
+/* Gold Frame Fix: This follows the card curves perfectly */
+.menu-item::after {
+    content: '';
+    position: absolute;
+    top: 6px; left: 6px; right: 6px; bottom: 6px;
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    border-radius: 8px;
+    pointer-events: none;
 }
 
 .item-img { 
     width: 100%; 
-    height: 120px; 
+    height: 110px; 
     object-fit: cover; 
-    border-radius: 8px; 
+    border-radius: 6px; 
 }
 
 .item-info h3 { 
-    font-size: 0.9rem; 
-    margin: 15px 0 5px; 
+    font-size: 0.85rem; 
+    margin: 12px 0 4px; 
+    font-weight: 600;
 }
 
 .price { 
     color: var(--gold); 
     font-weight: 800; 
-    font-size: 1.1rem; 
+    font-size: 1rem; 
+    margin-bottom: 8px;
 }
 
-/* 6. Quantity Controls */
+/* 6. Quantity Controls - Better Touch Targets */
 .qty-controls { 
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    gap: 12px; 
-    margin-top: 10px;
+    gap: 15px; 
+    position: relative;
+    z-index: 2;
 }
 
 .qty-controls button { 
     background: var(--dark); 
     color: var(--gold); 
     border: none; 
-    width: 28px; 
-    height: 28px; 
+    width: 32px; 
+    height: 32px; 
     border-radius: 50%; 
     font-weight: 800;
+    cursor: pointer;
 }
 
-/* 7. Footer & Sections */
+/* 7. Cart & Other Sections */
 .cart, .reservations, .visit {
-    padding: 60px 20px; 
+    padding: 50px 20px; 
     text-align: center; 
-    background: var(--card-bg); /* Makes these sections clean white */
-    margin-top: 20px;
+    background: var(--card-bg); 
+    border-top: 1px solid var(--border);
 }
 
 .order-btn {
     width: 100%; 
-    max-width: 300px; 
-    padding: 15px; 
+    max-width: 350px; 
+    padding: 16px; 
     background: var(--dark); 
     color: var(--gold); 
     border: none; 
     border-radius: 8px; 
-    font-weight: 700;
-    margin-top: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
 }
 
 .footer { 
-    padding: 40px 20px; 
+    padding: 30px 20px; 
     text-align: center; 
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     background: var(--body-bg);
+    color: #999;
+    letter-spacing: 1px;
 }
 
-/* Type Indicators */
-.type-indicator.veg { color: #28a745; font-size: 0.7rem; font-weight: bold; }
-.type-indicator.non-veg { color: #dc3545; font-size: 0.7rem; font-weight: bold; }
+/* Veg/Non-Veg Visual Dots */
+.type-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 auto 8px;
+    border: 1px solid white;
+    outline: 1px solid #ccc;
+}
+.type-indicator.veg { background: #28a745; outline-color: #28a745; }
+.type-indicator.non-veg { background: #dc3545; outline-color: #dc3545; }
