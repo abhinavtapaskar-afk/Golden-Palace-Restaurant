@@ -1,7 +1,8 @@
 :root {
     --gold: #d4af37;
     --dark: #1a1a1a;
-    --white: #ffffff;
+    --body-bg: #01261C; /* <--- CHANGE THIS for Whole Website Color */
+    --card-bg: #ffffff; /* <--- CHANGE THIS for Menu Item Card Color */
     --light-grey: #f8f8f8;
     --border: #eeeeee;
 }
