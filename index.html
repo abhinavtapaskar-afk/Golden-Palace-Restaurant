@@ -68,20 +68,26 @@
 </section>
 
 <section id="reservations" class="reservations">
-    <div class="section-head">
-        <span class="sub-title">Book a Table</span>
-        <h2>Reserve Your Palace Experience</h2>
-    </div>
-    
-    <div class="reservation-box">
-        <p>Planning a family dinner or a birthday celebration?</p>
+    <div class="reservation-card">
+        <span class="royal-tag">Reservations</span>
+        <h2 class="res-title">Reserve Your Palace Experience</h2>
+        <p class="res-subtitle">Planning a family dinner or a birthday celebration?</p>
+        
         <div class="res-features">
-            <span>✅ Private Family Cabin</span>
-            <span>✅ Special Occasion Decor</span>
+            <div class="feature-item"><span>✅</span> Private Family Cabin</div>
+            <div class="feature-item"><span>✅</span> Special Occasion Decor</div>
         </div>
-        <button class="booking-btn" onclick="sendTableBooking()">
-            Send Reservation Request
-        </button>
+
+        <div class="res-form">
+            <input type="text" id="resName" placeholder="Your Full Name" class="res-input">
+            <div class="res-row">
+                <input type="number" id="resGuests" placeholder="Guests" class="res-input">
+                <input type="date" id="resDate" class="res-input">
+            </div>
+            <button class="booking-btn" onclick="sendTableBooking()">
+                Send Reservation Request
+            </button>
+        </div>
     </div>
 </section>
 
